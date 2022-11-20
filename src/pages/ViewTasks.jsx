@@ -1,9 +1,9 @@
 import { detectStyle } from "../helpers/getStyles";
+import uuid from "react-uuid";
 
-const ViewTasks = ({ students, tasks, setTasks }) => {
-  const handleChangeStatus = (grabbedIdx, e) => {
-    console.log(grabbedIdx);
-    console.log(e.target);
+const ViewTasks = ({ students, tasks }) => {
+  const handleChangeStatus = (index) => {
+    console.log(index);
   };
   return (
     <section>
@@ -12,14 +12,14 @@ const ViewTasks = ({ students, tasks, setTasks }) => {
         {students?.map((stud) => (
           <div key={stud.id}>
             <p>{stud.name}</p>
-            {tasks?.map((task, idx) => (
-              <span
-                key={task.id}
-                className={`circle ${detectStyle(task.status)}`}
-                onClick={(e) => handleChangeStatus(idx, e)}
+            {stud.tasksArr.map((item, idx) => (
+              <p
+                key={idx}
+                className={`circle ${detectStyle(item.status)}`}
+                onClick={() => handleChangeStatus(uuid())}
               >
-                {idx}
-              </span>
+                {/* {item.title} */}
+              </p>
             ))}
           </div>
         ))}

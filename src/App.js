@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Students from "./pages/Students";
 import Tasks from "./pages/Tasks";
+import ViewTasks from "./pages/ViewTasks";
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -18,18 +19,17 @@ function App() {
         <Route index element={<Home />} />
         <Route
           path="/add-students"
-          element={
-            <Students
-              students={students}
-              setStudents={setStudents}
-              tasks={tasks}
-              setTasks={setTasks}
-            />
-          }
+          element={<Students students={students} setStudents={setStudents} />}
         />
         <Route
           path="/add-tasks"
-          element={<Tasks tasks={tasks} setTasks={setTasks} />}
+          element={
+            <Tasks tasks={tasks} setTasks={setTasks} students={students} />
+          }
+        />
+        <Route
+          path="view-tasks"
+          element={<ViewTasks students={students} tasks={tasks} />}
         />
       </Routes>
     </div>

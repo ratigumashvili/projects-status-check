@@ -17,3 +17,26 @@ code {
 a {
   color: inherit;
 }
+
+.circle {
+  width: 30px;
+  height: 30px;
+  border: solid 1px #333;
+  border-radius: 50%;
+}
+
+.grey {
+  background-color: lightgray;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: crimson;
+}
