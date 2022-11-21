@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+$light-grey: #e1e1e1;
+$grey-color: rgb(126, 126, 126);
+$main-color: #333;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -12,7 +16,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  color: #333;
+  color: $main-color;
+  font-size: 1rem;
 }
 
 code {
@@ -22,18 +27,62 @@ code {
 
 a {
   color: inherit;
+
+  &:empty {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.btn {
+  border: unset;
+  background: unset;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  padding: 8px 10px;
+  text-decoration: none;
+}
+
+.btn-common {
+  border: solid 1px $light-grey;
+  border-radius: 5px;
+  transition: all 0.25s ease;
+
+  &:hover {
+    background-color: $light-grey;
+  }
+}
+
+.btn-edit {
+  position: absolute;
+  top: -5px;
+  right: 5px;
+  padding: 0;
+  transition: all 0.25s ease;
+
+  &:hover {
+    color: $grey-color;
+  }
+}
+
+.home__controls {
+  display: flex;
+  gap: 15px;
 }
 
 .circle {
   display: block;
   width: 30px;
   height: 30px;
-  border: solid 1px #333;
+  border: solid 1px $main-color;
   border-radius: 50%;
 }
 
 .grey {
-  background-color: lightgray;
+  background-color: $light-grey;
 }
 
 .yellow {
@@ -50,25 +99,76 @@ a {
 
 .table {
   display: flex;
-
-  div,
-  h4 {
-    border-bottom: solid 1px red;
-    padding: 10px 0;
-    min-height: 55px !important;
-    min-width: 100px;
-  }
+  width: max-content;
+  border-top: solid 1px $light-grey;
+  border-left: solid 1px $light-grey;
+  border-right: none;
 }
 
 .first-col {
   color: inherit;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between !important;
-  border-right: solid 1px red;
+  border-right: solid 1px $light-grey;
+
+  div,
+  h4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  div {
+    font-weight: bold;
+    border-bottom: solid 1px $light-grey;
+    min-height: 55px !important;
+    min-width: 100px;
+  }
+
+  h4 {
+    border-bottom: solid 1px $light-grey;
+    min-height: 75px;
+    padding: 8px;
+  }
 }
 
-.table div.col,
-.first-col {
-  border-bottom: none !important;
+.col {
+  .item {
+    position: relative;
+    min-height: 55px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border-bottom: solid 1px $light-grey;
+    border-right: solid 1px $light-grey;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+
+  h4 {
+    min-height: 55px !important;
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: solid 1px $light-grey;
+    border-right: solid 1px $light-grey;
+  }
+}
+
+.table-item {
+  padding: 8px;
+  position: relative;
+  min-height: 75px;
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: solid 1px $light-grey;
+  border-right: solid 1px $light-grey;
 }

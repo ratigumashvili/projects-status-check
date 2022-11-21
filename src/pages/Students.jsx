@@ -1,14 +1,14 @@
 import uuid from "react-uuid";
 import { useState } from "react";
 
-const Students = ({ students, setStudents }) => {
+const Students = ({ students, setStudents, tasks }) => {
   const [studentName, setStudentName] = useState("");
   const handleAddStudent = (e) => {
     e.preventDefault();
     const newObj = {
       id: uuid(),
       name: studentName,
-      tasks: [],
+      tasks: tasks.length !== 0 ? tasks : [],
     };
     setStudents([...students, newObj]);
     setStudentName("");

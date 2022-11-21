@@ -16,10 +16,16 @@ function App() {
       </h1>
       <Routes>
         <Route path="/*" element={<NotFound />} />
-        <Route index element={<Home />} />
+        <Route index element={<Home students={students} tasks={tasks} />} />
         <Route
           path="/add-students"
-          element={<Students students={students} setStudents={setStudents} />}
+          element={
+            <Students
+              students={students}
+              setStudents={setStudents}
+              tasks={tasks}
+            />
+          }
         />
         <Route
           path="/add-tasks"

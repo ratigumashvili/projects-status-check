@@ -10,19 +10,33 @@ const OPTIONS = [
 
 const StatusSelect = ({ task }) => {
   const [status, setStatus] = useState(task.status);
+  const [show, setShow] = useState(false);
   const handleChangeStatus = (e) => {
     setStatus(e.target.value);
   };
   return (
-    <div>
+    <div className="table-item">
+      <button
+        className="btn btn-edit"
+        onClick={() => setShow(!show)}
+        title="Edit item"
+      >
+        ...
+      </button>
       <span className={`circle ${detectStyleNew(status)}`}></span>
-      <select onChange={(e) => handleChangeStatus(e)}>
-        {OPTIONS.map((opt) => (
-          <option key={opt.value} value={opt.value}>
-            {opt.name}
-          </option>
-        ))}
-      </select>
+      {show && (
+        <select
+          className="status-select"
+          defaultValue={status}
+          onChange={(e) => handleChangeStatus(e)}
+        >
+          {OPTIONS.map((opt) => (
+            <option key={opt.value} value={opt.value}>
+              {opt.name}
+            </option>
+          ))}
+        </select>
+      )}
     </div>
   );
 };
