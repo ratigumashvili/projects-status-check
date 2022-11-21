@@ -8,7 +8,7 @@ const Students = ({ students, setStudents }) => {
     const newObj = {
       id: uuid(),
       name: studentName,
-      tasksArr: [],
+      tasks: [],
     };
     setStudents([...students, newObj]);
     setStudentName("");

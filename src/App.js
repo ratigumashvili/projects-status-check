@@ -27,10 +27,7 @@ function App() {
             <Tasks tasks={tasks} setTasks={setTasks} students={students} />
           }
         />
-        <Route
-          path="view-tasks"
-          element={<ViewTasks students={students} tasks={tasks} />}
-        />
+        <Route path="view-tasks" element={<ViewTasks students={students} />} />
       </Routes>
     </div>
   );

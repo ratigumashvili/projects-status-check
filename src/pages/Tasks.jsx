@@ -1,21 +1,18 @@
 import { useState } from "react";
+import uuid from "react-uuid";
 
 const Tasks = ({ tasks, setTasks, students }) => {
   const [taskTitle, setTaskTitle] = useState("");
   const handleAddTitle = (e) => {
     e.preventDefault();
     const newObj = {
+      id: uuid(),
       title: taskTitle,
-      status: {
-        default: true,
-        check: false,
-        imrove: false,
-        complete: false,
-      },
+      status: "default",
     };
     setTasks([...tasks, newObj]);
     students.forEach((stud) => {
-      stud.tasksArr.push(newObj);
+      stud.tasks.push(newObj);
     });
     setTaskTitle("");
   };

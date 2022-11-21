@@ -1,30 +1,27 @@
-import { detectStyle } from "../helpers/getStyles";
-import uuid from "react-uuid";
-
-const ViewTasks = ({ students, tasks }) => {
-  const handleChangeStatus = (index) => {
-    console.log(index);
-  };
+import StatusSelect from "./StatusSelect";
+const ViewTasks = ({ students }) => {
+  console.log(students);
   return (
-    <section>
-      <h2>View Tasks</h2>
-      <div className="t-row">
-        {students?.map((stud) => (
-          <div key={stud.id}>
-            <p>{stud.name}</p>
-            {stud.tasksArr.map((item, idx) => (
-              <p
-                key={idx}
-                className={`circle ${detectStyle(item.status)}`}
-                onClick={() => handleChangeStatus(uuid())}
-              >
-                {/* {item.title} */}
-              </p>
+    <>
+      {students.length !== 0 && (
+        <div className="table">
+          <div className="first-col">
+            <div>#</div>
+            {students[0]?.tasks.map((record) => (
+              <h4 key={record.id}>{record.title}</h4>
             ))}
           </div>
-        ))}
-      </div>
-    </section>
+          {students?.map((student) => (
+            <div key={student.id} className="col">
+              <h4>{student.name}</h4>
+              {student.tasks.map((task) => (
+                <StatusSelect key={task.id} task={task} />
+              ))}
+            </div>
+          ))}
+        </div>
+      )}
+    </>
   );
 };
 
