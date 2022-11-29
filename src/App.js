@@ -5,10 +5,13 @@ import NotFound from "./pages/NotFound";
 import Students from "./pages/Students";
 import Tasks from "./pages/Tasks";
 import ViewTasks from "./pages/ViewTasks";
+import AddGroups from "./pages/AddGroups";
 
 function App() {
   const [tasks, setTasks] = useState([]);
   const [students, setStudents] = useState([]);
+  //v2
+  const [groups, setGroups] = useState([]);
   return (
     <div className="App">
       <h1>
@@ -30,6 +33,10 @@ function App() {
         <Route
           path="view-tasks"
           element={<ViewTasks students={students} tasks={tasks} />}
+        />
+        <Route
+          path="add-group"
+          element={<AddGroups groups={groups} setGroups={setGroups} />}
         />
       </Routes>
     </div>
