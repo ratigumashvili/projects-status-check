@@ -1,5 +1,5 @@
 import React from "react";
-import StatusSelect from "./StatusSelect";
+import StatusSelect from "../components/StatusSelect";
 const ViewTasks = ({ students }) => {
   console.log(students);
   return (
