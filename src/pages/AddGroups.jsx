@@ -2,6 +2,7 @@ import CreateGroups from "../components/steps/CreateGroups";
 import CreateStudents from "../components/steps/CreateStudents";
 import CreateTasks from "../components/steps/CreateTasks";
 import FormControll from "../components/FormControll";
+import CustomProgress from "../components/CustomProgress";
 
 import { useState } from "react";
 
@@ -10,12 +11,13 @@ const STEPS = ["Add Group", "Add Students", "Add Tasks"];
 const AddGroups = ({ groups, setGroups }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [choosedGroup, setChoosedGroup] = useState("");
+
   return (
     <div>
-      <h2>Add Groups</h2>
-      <h5>
-        {STEPS[currentStep]} {currentStep}
-      </h5>
+      <h2>{STEPS[currentStep]}</h2>
+
+      <CustomProgress STEPS={STEPS} currentStep={currentStep} />
+
       <>
         {STEPS[currentStep] === "Add Group" && (
           <CreateGroups setGroups={setGroups} />
