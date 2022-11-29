@@ -7,25 +7,36 @@ import { useState } from "react";
 
 const STEPS = ["Add Group", "Add Students", "Add Tasks"];
 
-const AddGroups = () => {
+const AddGroups = ({ groups, setGroups }) => {
   const [currentStep, setCurrentStep] = useState(0);
+  const [choosedGroup, setChoosedGroup] = useState("");
   return (
     <div>
       <h2>Add Groups</h2>
       <h5>
         {STEPS[currentStep]} {currentStep}
       </h5>
-      <form>
-        {STEPS[currentStep] === "Add Group" && <CreateGroups />}
-        {STEPS[currentStep] === "Add Students" && <CreateStudents />}
-        {STEPS[currentStep] === "Add Tasks" && <CreateTasks />}
+      <>
+        {STEPS[currentStep] === "Add Group" && (
+          <CreateGroups setGroups={setGroups} />
+        )}
+        {STEPS[currentStep] === "Add Students" && (
+          <CreateStudents
+            groups={groups}
+            choosedGroup={choosedGroup}
+            setChoosedGroup={setChoosedGroup}
+          />
+        )}
+        {STEPS[currentStep] === "Add Tasks" && (
+          <CreateTasks groups={groups} choosedGroup={choosedGroup} />
+        )}
 
         <FormControll
           STEPS={STEPS}
           currentStep={currentStep}
           setCurrentStep={setCurrentStep}
         />
-      </form>
+      </>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 
 const FormControll = ({ STEPS, currentStep, setCurrentStep }) => {
   return (
-    <>
+    <div className="form-control">
       <button
         type="button"
         disabled={currentStep === 0}
@@ -10,7 +10,6 @@ const FormControll = ({ STEPS, currentStep, setCurrentStep }) => {
       >
         Prev
       </button>
-      <br />
       <button
         type="button"
         disabled={currentStep === STEPS.length - 1}
@@ -18,7 +17,7 @@ const FormControll = ({ STEPS, currentStep, setCurrentStep }) => {
       >
         Next
       </button>
-    </>
+    </div>
   );
 };
 
