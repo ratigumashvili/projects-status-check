@@ -5,8 +5,6 @@ import { useState } from "react";
 const CreateTasks = ({ groups, setGroups, choosedGroup }) => {
   const [taskTitle, setTaskTitle] = useState("");
 
-  const selected = groups.filter(({ title }) => title === choosedGroup);
-
   const handleAddTask = () => {
     if (taskTitle.trim() === 0) {
       return;
@@ -18,11 +16,13 @@ const CreateTasks = ({ groups, setGroups, choosedGroup }) => {
       status: "default",
     };
 
-    selected[0].students.forEach((student) => {
-      student.tasks.push(newTask);
+    setGroups((prevState) => {
+      return prevState.filter((item) =>
+        item.title === choosedGroup
+          ? item.students.map((stud) => stud.tasks.push(newTask))
+          : item
+      );
     });
-
-    console.log(groups);
 
     setTaskTitle("");
   };
