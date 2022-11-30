@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Students from "./pages/Students";
@@ -8,11 +6,17 @@ import ViewTasks from "./pages/ViewTasks";
 import AddGroups from "./pages/AddGroups";
 import AllGroups from "./pages/AllGroups";
 
+import useLocalstorage from "./hooks/useLocalstorage";
+
+import { useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+
 function App() {
   const [tasks, setTasks] = useState([]);
   const [students, setStudents] = useState([]);
   //v2
-  const [groups, setGroups] = useState([]);
+  // const [groups, setGroups] = useState([]);
+  const [groups, setGroups] = useLocalstorage("groups", []);
   return (
     <div className="App">
       <h1>

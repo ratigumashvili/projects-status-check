@@ -7,8 +7,10 @@ const CreateStudents = ({ groups, choosedGroup, setChoosedGroup }) => {
   const selected = groups.filter(({ title }) => title === choosedGroup);
 
   useEffect(() => {
-    setChoosedGroup(groups[0].title);
-  }, [groups, setChoosedGroup]);
+    if (!choosedGroup) {
+      setChoosedGroup(groups[0].title);
+    }
+  }, [groups, setChoosedGroup, choosedGroup]);
 
   const handleChooseGroup = (e) => {
     setChoosedGroup(e.target.value);
@@ -54,7 +56,7 @@ const CreateStudents = ({ groups, choosedGroup, setChoosedGroup }) => {
               name="group"
               id={id}
               value={title}
-              defaultChecked={idx === 0}
+              defaultChecked={choosedGroup ? title === choosedGroup : idx === 0}
               onChange={handleChooseGroup}
             />
           </div>

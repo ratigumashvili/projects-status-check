@@ -6,11 +6,15 @@ import CustomProgress from "../components/CustomProgress";
 
 import { useState } from "react";
 
+import useLocalstorage from "../hooks/useLocalstorage";
+
 const STEPS = ["Add Group", "Add Students", "Add Tasks"];
 
 const AddGroups = ({ groups, setGroups }) => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [choosedGroup, setChoosedGroup] = useState("");
+  // const [choosedGroup, setChoosedGroup] = useState("");
+
+  const [choosedGroup, setChoosedGroup] = useLocalstorage("choosed", "");
 
   return (
     <div>

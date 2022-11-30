@@ -12,7 +12,7 @@ const FormControll = ({
   const [error, setError] = useState(null);
   const selected = groups.filter(({ title }) => title === choosedGroup);
 
-  console.log(selected);
+  // console.log(selected);
 
   const navigate = useNavigate();
 
