@@ -29,12 +29,18 @@ const AddGroups = ({ groups, setGroups }) => {
         {STEPS[currentStep] === "Add Students" && (
           <CreateStudents
             groups={groups}
+            setGroups={setGroups}
             choosedGroup={choosedGroup}
             setChoosedGroup={setChoosedGroup}
           />
         )}
         {STEPS[currentStep] === "Add Tasks" && (
-          <CreateTasks groups={groups} choosedGroup={choosedGroup} />
+          <CreateTasks
+            groups={groups}
+            setGroups={setGroups}
+            choosedGroup={choosedGroup}
+            setChoosedGroup={setChoosedGroup}
+          />
         )}
 
         <FormControll

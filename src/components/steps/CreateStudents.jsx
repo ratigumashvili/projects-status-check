@@ -2,9 +2,13 @@ import uuid from "react-uuid";
 
 import { useState, useEffect } from "react";
 
-const CreateStudents = ({ groups, choosedGroup, setChoosedGroup }) => {
+const CreateStudents = ({
+  groups,
+  setGroups,
+  choosedGroup,
+  setChoosedGroup,
+}) => {
   const [studentName, setStudentName] = useState("");
-  const selected = groups.filter(({ title }) => title === choosedGroup);
 
   useEffect(() => {
     if (!choosedGroup) {
@@ -27,7 +31,12 @@ const CreateStudents = ({ groups, choosedGroup, setChoosedGroup }) => {
       tasks: [],
     };
 
-    selected[0].students.push(newStudent);
+    setGroups((prevState) => {
+      return prevState.filter((item) =>
+        item.title === choosedGroup ? item.students.push(newStudent) : item
+      );
+    });
+
     setStudentName("");
   };
   return (

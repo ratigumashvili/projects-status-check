@@ -2,7 +2,7 @@ import uuid from "react-uuid";
 
 import { useState } from "react";
 
-const CreateTasks = ({ groups, choosedGroup }) => {
+const CreateTasks = ({ groups, setGroups, choosedGroup }) => {
   const [taskTitle, setTaskTitle] = useState("");
 
   const selected = groups.filter(({ title }) => title === choosedGroup);
@@ -15,11 +15,14 @@ const CreateTasks = ({ groups, choosedGroup }) => {
     const newTask = {
       id: uuid(),
       title: taskTitle,
+      status: "default",
     };
 
     selected[0].students.forEach((student) => {
       student.tasks.push(newTask);
     });
+
+    console.log(groups);
 
     setTaskTitle("");
   };

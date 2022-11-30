@@ -10,7 +10,7 @@ const FormControll = ({
   choosedGroup,
 }) => {
   const [error, setError] = useState(null);
-  const selected = groups.filter(({ title }) => title === choosedGroup);
+  const selected = groups?.filter(({ title }) => title === choosedGroup);
 
   // console.log(selected);
 
