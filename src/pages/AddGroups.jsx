@@ -37,6 +37,8 @@ const AddGroups = ({ groups, setGroups }) => {
           STEPS={STEPS}
           currentStep={currentStep}
           setCurrentStep={setCurrentStep}
+          groups={groups}
+          choosedGroup={choosedGroup}
         />
       </>
     </div>

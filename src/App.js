@@ -6,6 +6,7 @@ import Students from "./pages/Students";
 import Tasks from "./pages/Tasks";
 import ViewTasks from "./pages/ViewTasks";
 import AddGroups from "./pages/AddGroups";
+import AllGroups from "./pages/AllGroups";
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -35,9 +36,10 @@ function App() {
           element={<ViewTasks students={students} tasks={tasks} />}
         />
         <Route
-          path="add-group"
+          path="/add-group"
           element={<AddGroups groups={groups} setGroups={setGroups} />}
         />
+        <Route path="/groups" element={<AllGroups groups={groups} />} />
       </Routes>
     </div>
   );
