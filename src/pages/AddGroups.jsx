@@ -35,12 +35,7 @@ const AddGroups = ({ groups, setGroups }) => {
           />
         )}
         {STEPS[currentStep] === "Add Tasks" && (
-          <CreateTasks
-            groups={groups}
-            setGroups={setGroups}
-            choosedGroup={choosedGroup}
-            setChoosedGroup={setChoosedGroup}
-          />
+          <CreateTasks setGroups={setGroups} choosedGroup={choosedGroup} />
         )}
 
         <FormControll

@@ -2,7 +2,7 @@ import uuid from "react-uuid";
 
 import { useState } from "react";
 
-const CreateTasks = ({ groups, setGroups, choosedGroup }) => {
+const CreateTasks = ({ setGroups, choosedGroup }) => {
   const [taskTitle, setTaskTitle] = useState("");
 
   const handleAddTask = () => {
