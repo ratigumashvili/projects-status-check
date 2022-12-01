@@ -5,7 +5,13 @@ import { useState } from "react";
 const CreateGroups = ({ setGroups }) => {
   const [groupTitleValue, setGroupTitleValue] = useState("");
 
-  const handleStartCreatingGroup = () => {
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleCreateGroup();
+    }
+  };
+
+  const handleCreateGroup = () => {
     if (groupTitleValue.trim() === "") {
       return;
     }
@@ -22,10 +28,11 @@ const CreateGroups = ({ setGroups }) => {
         placeholder="Add group title"
         value={groupTitleValue}
         onChange={(e) => setGroupTitleValue(e.target.value)}
+        onKeyDown={handleKeyDown}
       />
       <button
         type="button"
-        onClick={handleStartCreatingGroup}
+        onClick={handleCreateGroup}
         disabled={groupTitleValue.trim() === ""}
       >
         Add

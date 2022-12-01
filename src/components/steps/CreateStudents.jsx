@@ -20,6 +20,12 @@ const CreateStudents = ({
     setChoosedGroup(e.target.value);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleAddStudent();
+    }
+  };
+
   const handleAddStudent = () => {
     if (studentName.trim() === "") {
       return;
@@ -46,6 +52,7 @@ const CreateStudents = ({
         placeholder="Add students"
         value={studentName}
         onChange={(e) => setStudentName(e.target.value)}
+        onKeyDown={handleKeyDown}
       />
       <button
         type="button"

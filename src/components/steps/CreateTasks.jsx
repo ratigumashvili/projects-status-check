@@ -5,6 +5,12 @@ import { useState } from "react";
 const CreateTasks = ({ setGroups, choosedGroup }) => {
   const [taskTitle, setTaskTitle] = useState("");
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleAddTask();
+    }
+  };
+
   const handleAddTask = () => {
     if (taskTitle.trim() === 0) {
       return;
@@ -33,6 +39,7 @@ const CreateTasks = ({ setGroups, choosedGroup }) => {
         placeholder="Add task title"
         value={taskTitle}
         onChange={(e) => setTaskTitle(e.target.value)}
+        onKeyDown={handleKeyDown}
       />
       <button
         type="button"
