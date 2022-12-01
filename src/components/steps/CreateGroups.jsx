@@ -2,8 +2,9 @@ import uuid from "react-uuid";
 
 import { useState } from "react";
 
-const CreateGroups = ({ setGroups }) => {
+const CreateGroups = ({ groups, setGroups }) => {
   const [groupTitleValue, setGroupTitleValue] = useState("");
+  const [error, setError] = useState(false);
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -12,17 +13,26 @@ const CreateGroups = ({ setGroups }) => {
   };
 
   const handleCreateGroup = () => {
+    setError(false);
+
+    const newGroup = { id: uuid(), title: groupTitleValue, students: [] };
+
     if (groupTitleValue.trim() === "") {
       return;
     }
-    setGroups((prev) => [
-      ...prev,
-      { id: uuid(), title: groupTitleValue, students: [] },
-    ]);
+
+    if (groups?.some(({ title }) => title === newGroup.title)) {
+      setError("Group with that name allready registered");
+      return;
+    }
+
+    setGroups((prev) => [...prev, newGroup]);
+
     setGroupTitleValue("");
   };
   return (
     <div>
+      {error && <p>{error}</p>}
       <input
         type="text"
         placeholder="Add group title"

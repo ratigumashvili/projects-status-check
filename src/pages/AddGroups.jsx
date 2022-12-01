@@ -24,7 +24,7 @@ const AddGroups = ({ groups, setGroups }) => {
 
       <>
         {STEPS[currentStep] === "Add Group" && (
-          <CreateGroups setGroups={setGroups} />
+          <CreateGroups groups={groups} setGroups={setGroups} />
         )}
         {STEPS[currentStep] === "Add Students" && (
           <CreateStudents
