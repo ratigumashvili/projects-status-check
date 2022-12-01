@@ -12,8 +12,6 @@ const STEPS = ["Add Group", "Add Students", "Add Tasks"];
 
 const AddGroups = ({ groups, setGroups }) => {
   const [currentStep, setCurrentStep] = useState(0);
-  // const [choosedGroup, setChoosedGroup] = useState("");
-
   const [choosedGroup, setChoosedGroup] = useLocalstorage("choosed", "");
 
   return (

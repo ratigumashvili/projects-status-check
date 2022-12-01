@@ -33,22 +33,25 @@ const CreateTasks = ({ setGroups, choosedGroup }) => {
     setTaskTitle("");
   };
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Add task title"
-        value={taskTitle}
-        onChange={(e) => setTaskTitle(e.target.value)}
-        onKeyDown={handleKeyDown}
-      />
-      <button
-        type="button"
-        disabled={taskTitle.trim() === ""}
-        onClick={handleAddTask}
-      >
-        Add
-      </button>
-    </div>
+    <section className="form-section">
+      <div className="groups-input-wrapper">
+        <input
+          type="text"
+          placeholder="Add task title"
+          value={taskTitle}
+          onChange={(e) => setTaskTitle(e.target.value)}
+          onKeyDown={handleKeyDown}
+        />
+        <button
+          className="btn btn-form"
+          type="button"
+          disabled={taskTitle.trim() === ""}
+          onClick={handleAddTask}
+        >
+          Add
+        </button>
+      </div>
+    </section>
   );
 };
 

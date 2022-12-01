@@ -5,6 +5,7 @@ import Tasks from "./pages/Tasks";
 import ViewTasks from "./pages/ViewTasks";
 import AddGroups from "./pages/AddGroups";
 import AllGroups from "./pages/AllGroups";
+import SingleGroup from "./pages/SingleGroup";
 
 import useLocalstorage from "./hooks/useLocalstorage";
 
@@ -44,6 +45,7 @@ function App() {
           element={<AddGroups groups={groups} setGroups={setGroups} />}
         />
         <Route path="/groups" element={<AllGroups groups={groups} />} />
+        <Route path="/groups/:id" element={<SingleGroup groups={groups} />} />
       </Routes>
     </div>
   );

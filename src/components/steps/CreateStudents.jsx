@@ -46,39 +46,46 @@ const CreateStudents = ({
     setStudentName("");
   };
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Add students"
-        value={studentName}
-        onChange={(e) => setStudentName(e.target.value)}
-        onKeyDown={handleKeyDown}
-      />
-      <button
-        type="button"
-        disabled={studentName.trim() === ""}
-        onClick={handleAddStudent}
-      >
-        Add
-      </button>
+    <section className="form-section">
+      <div className="groups-input-wrapper">
+        <input
+          type="text"
+          placeholder="Add students"
+          value={studentName}
+          onChange={(e) => setStudentName(e.target.value)}
+          onKeyDown={handleKeyDown}
+        />
+        <button
+          className="btn btn-form"
+          type="button"
+          disabled={studentName.trim() === ""}
+          onClick={handleAddStudent}
+        >
+          Add
+        </button>
+      </div>
 
-      {groups?.map((item, idx) => {
-        const { id, title } = item;
-        return (
-          <div key={id}>
-            <label htmlFor={id}>{title}</label>
-            <input
-              type="radio"
-              name="group"
-              id={id}
-              value={title}
-              defaultChecked={choosedGroup ? title === choosedGroup : idx === 0}
-              onChange={handleChooseGroup}
-            />
-          </div>
-        );
-      })}
-    </div>
+      <div className="form-radio-buttons">
+        {groups?.map((item, idx) => {
+          const { id, title } = item;
+          return (
+            <div key={id}>
+              <label htmlFor={id}>{title}</label>
+              <input
+                type="radio"
+                name="group"
+                id={id}
+                value={title}
+                defaultChecked={
+                  choosedGroup ? title === choosedGroup : idx === 0
+                }
+                onChange={handleChooseGroup}
+              />
+            </div>
+          );
+        })}
+      </div>
+    </section>
   );
 };
 

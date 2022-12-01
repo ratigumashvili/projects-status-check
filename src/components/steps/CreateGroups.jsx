@@ -31,23 +31,26 @@ const CreateGroups = ({ groups, setGroups }) => {
     setGroupTitleValue("");
   };
   return (
-    <div>
-      {error && <p>{error}</p>}
-      <input
-        type="text"
-        placeholder="Add group title"
-        value={groupTitleValue}
-        onChange={(e) => setGroupTitleValue(e.target.value)}
-        onKeyDown={handleKeyDown}
-      />
-      <button
-        type="button"
-        onClick={handleCreateGroup}
-        disabled={groupTitleValue.trim() === ""}
-      >
-        Add
-      </button>
-    </div>
+    <section className="form-section">
+      <div className="groups-input-wrapper">
+        {error && <p>{error}</p>}
+        <input
+          type="text"
+          placeholder="Add group title"
+          value={groupTitleValue}
+          onChange={(e) => setGroupTitleValue(e.target.value)}
+          onKeyDown={handleKeyDown}
+        />
+        <button
+          className="btn btn-form"
+          type="button"
+          onClick={handleCreateGroup}
+          disabled={groupTitleValue.trim() === ""}
+        >
+          Add
+        </button>
+      </div>
+    </section>
   );
 };
 
