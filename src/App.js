@@ -44,7 +44,10 @@ function App() {
           path="/add-group"
           element={<AddGroups groups={groups} setGroups={setGroups} />}
         />
-        <Route path="/groups" element={<AllGroups groups={groups} />} />
+        <Route
+          path="/groups"
+          element={<AllGroups groups={groups} setGroups={setGroups} />}
+        />
         <Route path="/groups/:id" element={<SingleGroup groups={groups} />} />
       </Routes>
     </div>
