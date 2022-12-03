@@ -1,14 +1,14 @@
 export const detectStyle = (value) => {
-  if (value.default) {
+  if (value === "default") {
     return "grey";
   }
-  if (value.check) {
+  if (value === "failed") {
     return "red";
   }
-  if (value.improve) {
+  if (value === "improve") {
     return "yellow";
   }
-  if (value.complete) {
+  if (value === "done") {
     return "green";
   }
 };

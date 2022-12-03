@@ -18,6 +18,7 @@ function App() {
   //v2
   // const [groups, setGroups] = useState([]);
   const [groups, setGroups] = useLocalstorage("groups", []);
+  const [choosedGroup, setChoosedGroup] = useLocalstorage("choosed", "");
   return (
     <div className="App">
       <h1>
@@ -42,13 +43,23 @@ function App() {
         />
         <Route
           path="/add-group"
-          element={<AddGroups groups={groups} setGroups={setGroups} />}
+          element={
+            <AddGroups
+              groups={groups}
+              setGroups={setGroups}
+              choosedGroup={choosedGroup}
+              setChoosedGroup={setChoosedGroup}
+            />
+          }
         />
         <Route
           path="/groups"
           element={<AllGroups groups={groups} setGroups={setGroups} />}
         />
-        <Route path="/groups/:id" element={<SingleGroup groups={groups} />} />
+        <Route
+          path="/groups/:id"
+          element={<SingleGroup groups={groups} setGroups={setGroups} />}
+        />
       </Routes>
     </div>
   );

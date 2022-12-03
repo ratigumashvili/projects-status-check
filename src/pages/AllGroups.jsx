@@ -24,7 +24,7 @@ const AllGroups = ({ groups, setGroups }) => {
               </button>
             </div>
           </div>
-          <p>Students: {students.length}</p>
+          <p>Students: {students?.length}</p>
           <Link to={`/groups/${id}`}>View group</Link>
         </article>
       ))}

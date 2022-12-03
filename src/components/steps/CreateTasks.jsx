@@ -1,4 +1,4 @@
-import uuid from "react-uuid";
+// import uuid from "react-uuid";
 
 import { useState } from "react";
 
@@ -17,7 +17,7 @@ const CreateTasks = ({ setGroups, choosedGroup }) => {
     }
 
     const newTask = {
-      id: uuid(),
+      // id: uuid(),
       title: taskTitle,
       status: "default",
     };

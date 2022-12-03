@@ -33,7 +33,6 @@ const CreateGroups = ({ groups, setGroups }) => {
   return (
     <section className="form-section">
       <div className="groups-input-wrapper">
-        {error && <p>{error}</p>}
         <input
           type="text"
           placeholder="Add group title"
@@ -50,6 +49,7 @@ const CreateGroups = ({ groups, setGroups }) => {
           Add
         </button>
       </div>
+      {error && <p>{error}</p>}
     </section>
   );
 };
